@@ -1,0 +1,111 @@
+\section{Introduction}
+Web page segmentation is the analysis process 
+of dividing a web page into a coherent set of elements.
+Examples of segments include sidebars,
+headers, footers, to name a few. 
+The basis of segmentation is that
+the contents of a segment are perceived by the user
+as perceptually similar. 
+% Web page segmentation has been used 
+% in a wide variety of testing and analysis problems, such as
+% cross-browser testing~\cite{saar2016browserbite,huse2008using},
+% mobile layout bugs testing and repair~\cite{mahajan2018automated,mahajan2018automated_intl},
+% security testing~\cite{geng2015combating},
+% and optimizing and directing crawlers~\cite{uzun2014effective,bharati2013higwget},
+% to name a few.
+% All these examples rely on page segmentation
+% to perform their tasks.
+% Segmentation provides a number of benefits in these
+% scenarios, such as abstraction,
+Segmentation provides a number of benefits,
+such as page abstraction~\cite{uzun2014effective,bharati2013higwget}, 
+localization of bugs and repairs~\cite{mahajan2018automated,mahajan2018automated_intl},
+and page difference measurement~\cite{saar2016browserbite,huse2008using}.
+% Accordingly,
+% a reliable and accurate segmentation can have an impact on 
+% many areas of software testing and analysis.
+
+However, existing segmentation approaches 
+have a number of drawbacks.
+Document Object Model (DOM)-based techniques
+are one way to perform segmentation
+~\cite{rajkumar2012dynamic,vineel2009web,kang2010repetition}.
+In this case, data is extracted from the DOM
+and then various forms of analysis are performed to identify
+patterns in the DOM.
+While information gained from the DOM can be useful,
+these approaches, however, have one key drawback.
+The analysis performed is not necessarily related
+to what the user is perceiving on screen,
+and therefore the number of false positives
+or false negatives can be high.
+An alternative approach uses text-based information~\cite{kohlschutter2008densitometric, kolcz2007site}.
+In this case, only textual nodes in the DOM are extracted
+as a flat (i.e., non-tree) set of strings.
+Various forms of analysis,
+typically linguistic in nature,
+are then applied to the textual data to identify
+suitable segments.
+While text and linguistic information is certainly
+an aspect that the user can observe,
+these approaches, by definition,
+do not consider other important aspects of the page,
+such as style, page layout and images.
+Finally, another approach uses visual DOM properties 
+to perform segmentation.
+This is exemplified by the VIPS algorithm~\cite{cai2003vips},
+a popular state-of-the-art segmentation technique~\cite{sleiman2013survey,campus2011web}.
+Although VIPS stands for Vision-based Page Segmentation,
+the technique only uses visual \emph{attributes} from the DOM 
+(e.g., background color) in its analysis.
+It does not perform a visual analysis of the page itself from a computer vision perspective,
+such as analyzing the overall visual layout.
+It also makes rigid assumptions about the design of a web page.
+For instance, it assumes \code{<hr>} tags always behave as horizontal rules,
+and therefore their approach segments the page when it sees that tag.
+Such hard coded rules result in a fragile approach with reduced accuracy,
+since developers often use tags in various non-standard ways
+and combine them with various styling rules.
+VIPS also requires a number of thresholds and parameters
+that need to be provided by the user,
+thereby increasing manual effort and reducing accuracy due to sub-optimal parameter tuning.
+
+In this paper,
+we propose a novel page segmentation approach, called \toolname, 
+that combines DOM attributes and visual analysis to build features
+and to provide a metric that guides clustering.
+The segmentation process begins by an abstraction process that
+filters and normalizes DOM nodes into abstract visual objects.
+Subsequently, 
+layout and formatting features are extracted from the objects. 
+Finally, we build a visual adjacency neighborhood of the objects 
+and use it to guide an unsupervised machine learning
+clustering to construct the final segments.
+Furthermore, \toolname is parameter-free,
+requiring no thresholds for its operation and therefore
+reduces the manual effort required and
+makes the accuracy of the approach
+independent of manual parameter tuning. 
+
+We evaluate \toolname's segmentation effectiveness and efficiency
+on 35 real-world web pages.
+The evaluation compares \toolname with the 
+state-of-the-art VIPS segmentation algorithm.
+Overall, our approach is able to achieve 
+an average of 156\% improvement in precision
+and 249\% improvement
+in F-measure, relative to the state-of-the-art.
+
+This paper makes the following contributions:
+\begin{itemize}
+    \item A novel, parameter-free, segmentation technique that combines both the DOM and 
+            visual analysis for building features and guiding an unsupervised clustering.
+    \item An implementation of our approach,
+          available in a tool called \toolname.
+    \item A quantitative evaluation of \toolname in terms of
+          segmentation effectiveness and efficiency.
+\end{itemize}
+
+
+
+

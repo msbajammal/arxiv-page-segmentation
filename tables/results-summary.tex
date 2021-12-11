@@ -1,0 +1,36 @@
+\begin{table}
+	\caption{Precision, recall, and efficiency comparison}
+	\centering
+	%\fontsize{8pt}{9.2pt}\selectfont
+	%\setlength\tabcolsep{2px}
+	\begin{threeparttable}
+		\bgroup
+		%\def\arraystretch{1.2}
+		\begin{tabular}{l r r c}
+			\toprule
+											& \textbf{VIPS}		& \textbf{Cortex}  & \textbf{Significance} 	\\
+			\toprule
+			Precision          				& 32.1\%            & \textbf{50.1}\%  & $t_{score} = $ 5.15    \\
+											& 					& 				   & $p < 0.00001$ 			\\
+			relative improvement          	& ---               & 156.1\%          & \ 						\\
+			\midrule 
+			Recall         					& 13.7\%            & \textbf{38.8}\%  & $t_{score} = $ 5.29    \\
+											& 					& 				   & $p < 0.00001$ 			\\
+			
+			relative improvement         	& ---               & 283.2\%          & \ 						\\
+			\midrule
+			F-measure         				& 15.7\%            & \textbf{39.1}\%  & $t_{score} = $ 6.67    \\
+											& 					& 				   & $p < 0.00001$ 			\\
+
+			relative improvement          	& ---               & 249.0\%          & \   					\\
+			\midrule
+			Efficiency (seconds)  			& 57.3 s            & \textbf{0.694} s & $t_{score} = $ 7.76    \\
+											& 					& 				   & $p < 0.00001$ 			\\
+			relative improvement          	& ---               & 8,256.5\%        & \   					\\
+			\bottomrule
+
+		\end{tabular}
+		\egroup
+	\end{threeparttable}
+	\label{tbl:results-summary}
+\end{table}

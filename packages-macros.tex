@@ -1,0 +1,172 @@
+% !TEX root =  paper.tex
+
+% \usepackage{cite}
+% \usepackage{amsmath,amssymb,amsfonts}
+% \usepackage{algorithmic}
+% \usepackage{graphicx}
+% \usepackage{subcaption}
+% \usepackage{textcomp}
+% \usepackage{xcolor}
+% \usepackage{multicol} % \columnbreak
+% \usepackage{balance}
+% \usepackage{enumitem}    
+
+\usepackage{booktabs}
+\usepackage[caption=false,font=normalsize,labelfont=sf,textfont=sf]{subfig}
+%\usepackage{cite}
+\usepackage{hyperref}
+\usepackage{array}
+\usepackage{threeparttable}
+\usepackage{enumitem}    
+\usepackage[greek,english]{babel}
+\usepackage{ifthen}
+\usepackage{xspace}
+\usepackage{fancybox}
+\usepackage{marginnote}
+\usepackage{tcolorbox}
+\usepackage{multirow}
+\usepackage{mathtools}
+\usepackage{algpseudocode, algorithm, algorithmicx}
+\usepackage{color,soul}
+\usepackage{graphicx}
+\usepackage{amsmath} %, amssymb}
+\usepackage{tikz}
+\usepackage{cleveref}
+\usepackage{hhline}
+\usepackage{balance}
+% \usepackage[inkscape={/Applications/Inkscape.app/Contents/MacOS/Inkscape -z -C}]{svg}
+
+\usepackage{listings}
+\usepackage{parcolumns}
+\usepackage{cleveref}
+
+\definecolor{light-gray}{gray}{0.95}
+\newcommand{\code}[1]{\colorbox{light-gray}{\texttt{#1}}}
+
+\definecolor{circled-color}{gray}{0.15}
+\newcommand*\circled[1]{\tikz[inner sep=.1ex,baseline=-.75ex] \node[circle,draw,color=white,fill=circled-color] {#1};}
+
+
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+
+\newboolean{showcomments}
+\setboolean{showcomments}{true}
+\ifthenelse{\boolean{showcomments}}
+{
+    \definecolor{myyellow}{RGB}{255, 228, 26}
+    \definecolor{myblue}{RGB}{50, 50, 220}
+    \definecolor{myred}{RGB}{250, 10, 10}
+    \newcommand{\nb}[2]{
+        {\sf
+            \fcolorbox{myyellow}{orange}{\scriptsize\textbf{#1}}%
+            $\blacktriangleright$%
+            {\color{myred}\fontsize{7pt}{8pt}\selectfont\textbf{[[#2]]}}%
+        }%
+    }
+}
+{
+    \newcommand{\nb}[2]{}
+}
+
+\newcommand{\mohammad}[1]{\nb{Mohammad}{#1}}
+\newcommand{\ali}[1]{\nb{Ali}{#1}}
+
+
+\usepackage{color}
+
+
+\definecolor{editorGray}{rgb}{0.95, 0.95, 0.95}
+\definecolor{editorOcher}{rgb}{1, 0.5, 0} % #FF7F00 -> rgb(239, 169, 0)
+\definecolor{editorGreen}{rgb}{0, 0.5, 0} % #007C00 -> rgb(0, 124, 0)
+
+\lstdefinelanguage{JavaScript}{
+  morekeywords={typeof, new, true, false, catch, function, return, null, catch, switch, var, if, in, while, do, else, case, break},
+  morecomment=[s]{/*}{*/},
+  morecomment=[l]//,
+  morestring=[b]",
+  morestring=[b]'
+}
+\lstdefinelanguage{HTML5}{
+        language=html,
+        sensitive=true, 
+        alsoletter={<>=-},
+        otherkeywords={
+        % HTML tags
+        <html>, <head>, <title>, </title>, <meta, />, </head>, <body>,
+        <canvas, \/canvas>, <script>, </script>, </body>, </html>, <!, html>, <style>, </style>, ><
+        },  
+        ndkeywords={
+        % General
+        =,
+        % HTML attributes
+        charset=, id=, width=, height=,
+        % CSS properties
+        border:, transform:, -moz-transform:, transition-duration:, transition-property:, transition-timing-function:
+        },  
+        morecomment=[s]{<!--}{-->},
+        tag=[s]
+}
+
+\lstdefinelanguage{CSS}{
+  morekeywords={background,color,display,justify,content,font,weight,border,size,padding},
+  morestring=[s]{:}{;},
+  sensitive,
+  morecomment=[s]{/*}{*/}
+}
+
+\lstset{%
+    % Basic design
+    backgroundcolor=\color{editorGray},
+    basicstyle={\scriptsize\ttfamily},   
+    frame=l,
+    % Line numbers
+    xleftmargin={0.75cm},
+    numbers=left,
+    stepnumber=1,
+    firstnumber=1,
+    numberfirstline=true,
+    % Code design   
+    keywordstyle=\color{blue}\bfseries,
+    commentstyle=\color{darkgray}\ttfamily,
+    ndkeywordstyle=\color{editorGreen}\bfseries,
+    stringstyle=\color{editorOcher},
+    % Code
+    language=HTML5,
+    alsolanguage=JavaScript,
+    alsodigit={.:;},
+    tabsize=2,
+    showtabs=false,
+    showspaces=false,
+    showstringspaces=false,
+    extendedchars=true,
+    breaklines=true,        
+    % Support for German umlauts
+    literate=%
+    {Ö}{{\"O}}1
+    {Ä}{{\"A}}1
+    {Ü}{{\"U}}1
+    {ß}{{\ss}}1
+    {ü}{{\"u}}1
+    {ä}{{\"a}}1
+    {ö}{{\"o}}1
+}
+
+\DeclareMathOperator*{\argmax}{argmax}
+\DeclareMathOperator*{\argmin}{argmin}
+
+\newcommand{\todo}[1]{\textcolor{magenta}{\nb{TODO:}{#1}}}
+%\newcommand{\header}[1]{\par\vspace{-1mm}\medskip\noindent\textbf{#1.}}
+\newcommand{\header}[1]{\par\medskip\noindent\textbf{#1.}}
+
+\newcommand{\html}{\textsc{HTML}\xspace}
+\newcommand{\css}{\textsc{CSS}\xspace}
+\newcommand{\javascript}{\textsc{JavaScript}\xspace}
+
+\newcommand{\toolname}{\textsc{Cortex}\xspace}
+
+\newcommand{\VizObjs}{Visual Objects}
+\newcommand{\VizObj}{Visual Object}
+\newcommand{\vizobj}{visual object}
+\newcommand{\vizobjs}{visual objects}
+

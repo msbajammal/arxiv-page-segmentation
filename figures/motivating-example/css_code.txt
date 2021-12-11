@@ -1,0 +1,13 @@
+.nav8471 {
+  background-color: #ffff00;
+  display: flex;
+  justify-content: space-around;
+  font-weight: bold;
+  border: 2px solid #000000;
+}
+
+.head902 {
+  font-size: 5vw;
+  font-weight: 900;
+  padding: 8vh 0 2vh 0;
+}

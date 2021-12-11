@@ -1,0 +1,22 @@
+\begin{abstract}
+Page segmentation is a web page analysis process that divides a page  
+into cohesive segments, such as sidebars, headers, and footers. 
+Current page segmentation approaches use either the DOM,
+textual content, or rendering style information of the page.
+However, these approaches have 
+a number of drawbacks,
+such as a large number of parameters and rigid assumptions about the page,
+which negatively impact their segmentation accuracy.
+We propose a novel page segmentation approach 
+based on visual analysis of localized adjacency regions.
+It combines DOM attributes and visual analysis to build features of a given page 
+and guide an unsupervised clustering.
+We evaluate our approach,
+implemented in a tool called \toolname,
+on 35 real-world web pages,
+and examine the effectiveness and efficiency of segmentation.
+The results show that, compared with state-of-the-art, \toolname achieves
+an average of 156\% increase in precision and 249\% improvement in F-measure.
+\end{abstract}
+    
+\keywords{web page segmentation, page analysis, visual analysis, clustering}

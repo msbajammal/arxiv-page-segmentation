@@ -1,0 +1,20 @@
+<div class="nav8471">
+  <div>Home</div>
+  <div>News</div>
+  <div>FAQ</div>
+  <div>Contact</div>
+</div>
+
+<div class="head902">
+Resources
+</div>
+<div>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin varius dictum malesuada. Donec at mollis diam. Praesent accumsan id urna non varius. Mauris sed metus nunc.
+</div>
+
+<div class="head902">
+About Us
+</div>
+<div>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin varius dictum malesuada. Donec at mollis diam. Praesent accumsan id urna non varius. Mauris sed metus nunc.
+</div>
